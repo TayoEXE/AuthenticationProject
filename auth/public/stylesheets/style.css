@@ -1,8 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("https://www.designhill.com/design-blog/wp-content/uploads/2017/08/colors.jpg");
+  background-size: 100%;
+  background-repeat: repeat;
 }
 
-a {
-  color: #00B7FF;
+#app {
+  margin: auto;
+  width: 65%;
+  border: 3px solid green;
+  padding: 30px;
+  background-color: lightblue;
+}
+
+div,
+a,
+span {
+  margin: auto;
+  text-align: center;
+  background-color: white;
+}
+
+h1,
+h3 {
+  text-align: center;
+  background-color: white;
+}
+
+#newName {
+  text-align: center;
+}
+
+li {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+img {
+  height: 300px;
+  width: auto;
 }
