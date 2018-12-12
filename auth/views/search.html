@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <title>Search</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#searchButton").click(function(e) {
+                var value = $("#searchField").val();
+                console.log(value);
+                e.preventDefault();
+
+                var myurl = "http://openlibrary.org/search.json?title=";
+                myurl += value;
+                console.log(myurl);
+
+                $.ajax({
+                    url: myurl,
+                    dataType: "json",
+                    success: function(parsed_json) {
+                        console.log(parsed_json);
+                        var items = parsed_json['docs'];
+                        var everything = "<ul>";
+                        var limit = parsed_json['num_found'];
+                        
+                        if (parsed_json['num_found'] > 20)
+                        {
+                            limit = 20;
+                        }
+                        
+                        for (var i = 0; i < limit; i++)
+                        {
+                            var item = items[i];
+                            var imageURL;
+                            if (item['cover_i'])
+                            {
+                                imageURL = "https://covers.openlibrary.org/w/id/" + item['cover_i'] + "-L.jpg"
+                            }
+                            else {
+                                imageURL = "https://cdn.browshot.com/static/images/not-found.png";
+                            }
+                            
+                            everything += "<li>";
+                            everything += "<img src='" + imageURL + "'>"
+                            everything += "<br>";
+                            everything += item['author_name'];
+                            everything += " - ";
+                            everything += item['title'];
+                            everything += " ("
+                            everything += item['first_publish_year'];
+                            everything += ")</li>"
+                        }
+                        
+                        /*$.each(items, function(i, item) {
+                            everything += "<li> <a href=\"";
+                            everything += items[i].link;
+                            everything += "\">";
+                            everything += items[i].title;
+                            everything += "</a></li>";
+                        });*/
+                        everything += "</ul>";
+                        console.log(everything);
+                        $("#searchResults").html(everything);
+
+                    }
+
+                })
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Search</h1>
+    <p><em>Search for your favorite book in this search engine!</em></p>
+    
+    <form>
+        <label>Search a query from Open Library:</label><br/>
+        <input id="searchField" type="text" placeholder="insert query"></input>
+        <input id="searchButton" type="submit" value="Get Results"></input>
+    </form>
+    <div id="searchResults"></div>
+    
+    
+    </script>
+</body>
+
+</html>
