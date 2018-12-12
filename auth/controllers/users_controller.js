@@ -88,7 +88,9 @@ exports.updateUser = function(req, res) {
                 }
                 else {
                     req.session.msg = 'User Updated.';
-                    req.session.color = req.body.color;
+                    req.session.favorite_book = req.body.favorite_book;
+                    req.session.book_cover = req.body.book_cover;
+                    req.session.favorite_genre = req.body.favorite_genre;
                 }
                 res.redirect('/user');
             });

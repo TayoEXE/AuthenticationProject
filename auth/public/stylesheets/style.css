@@ -1,7 +1,11 @@
 body {
-  background-image: url("https://www.designhill.com/design-blog/wp-content/uploads/2017/08/colors.jpg");
-  background-size: 100%;
-  background-repeat: repeat;
+  background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=841&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color:#756067;
+  font-family: sans-serif;
+  
 }
 
 #app {
@@ -15,15 +19,15 @@ body {
 div,
 a,
 span {
-  margin: auto;
   text-align: center;
-  background-color: white;
+  background-color: #8D9287;
 }
 
 h1,
 h3 {
+  
   text-align: center;
-  background-color: white;
+  background-color: #8D9287;
 }
 
 #newName {
